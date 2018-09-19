@@ -22,8 +22,10 @@
 %  Objet :  Outils pour la création de graphiques géométriques
 %<--------------------------------------------------------------------------–>
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{tkz-base}[2011/06/01 1.16 c tkz-base]
-\RequirePackage{etex}
+\ProvidesPackage{tkz-base}[2018/09/19 1.16 d tkz-base]
+\ifx\e@alloc\@undefined
+  \RequirePackage{etex}
+\fi
 \RequirePackage{tikz}   
 \usetikzlibrary{calc,%
                 arrows,%
