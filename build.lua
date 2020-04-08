@@ -2,7 +2,7 @@
 
 module = "tkz-base"
 tkzbasev = "3.06c"
-tkzbased = "2020/03/20"
+tkzbased = "2020/04/06"
 doctkzbasev = tkzbasev -- Same as "3.06c"
 doctkzbased = tkzbased -- Same as "2020/03/20"
 
