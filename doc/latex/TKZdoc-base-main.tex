@@ -106,7 +106,7 @@
 \AtBeginDocument{\MakeShortVerb{\|}} % link to shortvrb
 \pdfcompresslevel=9
 \setlength\parindent{0pt}
-\RequirePackage{imakeidx}
+\RequirePackage{makeidx}
 %\@twocolumnfalse
 \makeindex
 % \def\tkzref{\arabic{section}-\arabic{subsection}-\arabic{subsubsection}}
@@ -140,11 +140,9 @@
  fill=myblue!10,opacity=.5] (0,0) rectangle (300pt,240pt);
  \node[text width=240pt] at (150 pt,120 pt){%
   \begin{center}
-	  \color{MidnightBlue}
+      \color{MidnightBlue}
       \fontsize{24}{48}
-	  \selectfont tkz-euclide\\
-                tool for \\
-                Euclidean Geometry
+      \selectfont tkz-base
  \end{center}};
 \end{tikzpicture}}
 }
@@ -156,25 +154,40 @@
 
 \let\rmfamily\ttfamily
 \nameoffile{\tkznameofpack}
-\defoffile{\tkzname{\tkznameofpack} is a package based on \TIKZ\ to make graphics as simple as possible. It is the basis on which a series of packages will be built, having as a common point, the creation of drawings useful in the teaching of mathematics. The main function of Basic is to provide an orthogonal coordinate system, and to let the user choose the graphical units.  This package requires version 3 or higher of \TIKZ.}
+\defoffile{\tkzname{\tkznameofpack} is a package based on \TIKZ\ to make
+graphics as simple as possible. It is the basis on which a series of packages
+will be built, having as a common point, the creation of drawings useful in the
+teaching of mathematics. The main function of Basic is to provide an orthogonal
+coordinate system, and to let the user choose the graphical units. This package
+requires version 3 or higher of \TIKZ.}
 
 \presentation
 
 \vspace*{1cm}
-\noindent\space I'd like to thank \textbf{Till~Tantau} for creating the wonderful tool \href{http://sourceforge.net/projects/pgf/}{\TIKZ}.
+\noindent\space I'd like to thank \textbf{Till~Tantau} for creating the
+wonderful tool \href{https://github.com/pgf-tikz/pgf}{\TIKZ}.
 
 \vspace*{12pt}
-\noindent\space I thank \textbf{Yves~Combe} for sharing his work on the protractor and the compass constructions. I would also like to thank, \tkzimp{David~Arnold} who corrected a lot of errors and tested many examples, \tkzimp{Wolfgang~Büchel} who also corrected errors and built great scripts to get the example files,  \tkzimp{John~Kitzmiller} and \tkzimp{Dimitri~Kapetas} for their examples, \tkzimp{Gaétan~Marris} for his remarks and corrections, and finally \tkzimp{Laurent Van Deik} for all his corrections, remarks and questions.
+\noindent\space I thank \textbf{Yves~Combe} for sharing his work on the
+protractor and the compass constructions. I would also like to thank,
+\tkzimp{David~Arnold} who corrected a lot of errors and tested many examples,
+\tkzimp{Wolfgang~Büchel} who also corrected errors and built great scripts to
+get the example files, \tkzimp{John~Kitzmiller} and \tkzimp{Dimitri~Kapetas}
+for their examples, \tkzimp{Gaétan~Marris} for his remarks and corrections, and
+finally \tkzimp{Laurent Van Deik} for all his corrections, remarks and
+questions.
 
 \vspace*{12pt}
 \noindent\space You will find many examples on my site:
 \href{http://altermundus.fr}{altermundus.fr}.
 
 \vfill
-You can send your remarks, and reports on errors you find, to the following address: \href{mailto:al.ma@mac.com}{\textcolor{pdfurlcolor}{\tkzauthorofpack}}.
+You can send your remarks, and reports on errors you find, to the following
+address: \href{mailto:al.ma@mac.com}{\textcolor{pdfurlcolor}{\tkzauthorofpack}}.
 
 This file can be redistributed and/or modified under the terms of the \LATEX\
-Project Public License Distributed from \href{http://www.ctan.org/}{CTAN}\  archives.
+Project Public License Distributed from \href{https://www.ctan.org/}{CTAN}\
+archives.
 
 
 \clearpage
@@ -208,4 +221,3 @@ Project Public License Distributed from \href{http://www.ctan.org/}{CTAN}\  arch
 \small\printindex
 \end{multicols}
 \end{document}
-
