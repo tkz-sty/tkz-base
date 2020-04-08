@@ -1,6 +1,7 @@
 \section{Using  an orthogonal coordinate system}
-\subsection{Coordinate system with \tkzcname{tkzRep}}
-\hypertarget{rep}{}
+
+\subsection{Coordinate system with \tkzcname{tkzRep}}\hypertarget{rep}{}
+
 \begin{NewMacroBox}{tkzRep}{\oarg{local options}}%
 \begin{tabular}{lll}%
 options & default & definition  \\
@@ -17,19 +18,21 @@ options & default & definition  \\
 \end{tabular}
 \end{NewMacroBox}
 
-\subsubsection{Some modifiable styles }
- \begin{tkzltxexample}[small]
- \tikzset{xlabel style/.style                =   {below      =   3 pt,
-                                                 inner sep   =   1pt,
-                                                 outer sep   =   0pt}}
- \tikzset{ylabel style/.style                =   {left       =   3 pt,
-                                                 inner sep   =   1pt,
-                                                 outer sep   =   0pt}}
- \tikzset{xaxe style/.style                  =   {>          =   latex,  ->}}
- \tikzset{yaxe style/.style                  =   {>          =   latex,  ->}}
- \end{tkzltxexample}
+\subsubsection{Some modifiable styles}
 
-\subsubsection{Example of use }
+\begin{tkzltxexample}[small]
+\tikzset{xlabel style/.style                =   {below      =   3 pt,
+                                                 inner sep   =   1pt,
+                                                 outer sep   =   0pt}}
+\tikzset{ylabel style/.style                =   {left       =   3 pt,
+                                                 inner sep   =   1pt,
+                                                 outer sep   =   0pt}}
+\tikzset{xaxe style/.style                  =   {>          =   latex,  ->}}
+\tikzset{yaxe style/.style                  =   {>          =   latex,  ->}}
+\end{tkzltxexample}
+
+\subsubsection{Example of use}
+
 \begin{tkzexample}[small]
 \begin{tikzpicture}
   \tikzset{xaxe style/.style={-}}
@@ -42,9 +45,10 @@ options & default & definition  \\
 \end{tikzpicture}
 \end{tkzexample}
 
-
-
 \vspace{12pt}
-For those who use \tkzname{french} with \tkzname{babel}, in case of problems with version 3 of pgf, just load the \tkzname{babel} library. \TIKZ\ was indeed sometimes allergic to the active characters.
+
+For those who use \tkzname{french} with \tkzname{babel}, in case of problems
+with version 3 of pgf, just load the \tkzname{babel} library. \TIKZ\ was indeed
+sometimes allergic to the active characters.
 
 \endinput
