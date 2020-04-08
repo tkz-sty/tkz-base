@@ -12,7 +12,7 @@ an unique couple of coordinates.
 
 ## Licence
 
-The scontents package may be modified and distributed under the terms and
+The `tkz-base` package may be modified and distributed under the terms and
 conditions of the [LaTeX Project Public
 License](https://www.latex-project.org/lppl/), version 1.3c or greater.
 
