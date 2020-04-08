@@ -9,21 +9,21 @@
 % version 2005/12/01 or later.
 %
 % This work has the LPPL maintenance status “maintained”.
-% 
+%
 % The Current Maintainer of this work is Alain Matthes.
 %  utf8 encoding
 \def\fileversion{3.06c}
-\def\filedate{2020/03/18} 
-\typeout{2020/03/18 3.06c  tkz-tools-utilities.tex}  
+\def\filedate{2020/03/18}
+\typeout{2020/03/18 3.06c  tkz-tools-utilities.tex}
 \makeatletter
 % for testing results
 \def\extractxy#1{%
 \pgfextractx{\pgf@x}{\pgfpointanchor{#1}{center}}
 \pgfextracty{\pgf@y}{\pgfpointanchor{#1}{center}}
-\typeout{#1 \the\pgf@x,\the\pgf@y} 
-} 
+\typeout{#1 \the\pgf@x,\the\pgf@y}
+}
 
-%<-------------- some tools -------------------------------------------------> 
+%<-------------- some tools ------------------------------------------------->
 \def\tkzutil@empty{}
 \def\tkzutil@firstofone#1{#1}
 \def\tkzutil@firstoftwo#1#2{#1}
@@ -34,24 +34,24 @@
     \expandafter\tkzutil@firstoftwo
   \else
     \expandafter\tkzutil@secondoftwo
-  \fi} 
+  \fi}
 %<--------------------------------------------------------------------------–>
 \long\def\iftkznodedefined#1#2#3{%
     \tkzutil@ifundefined{pgf@sh@ns@#1}{#3}{#2}%
 }
 %<--------------------------------------------------------------------------–>
 \gdef\tkzActivOff{%
-   \edef\tkzTwoPtCode{\the\catcode`\:} 
-   \edef\tkzPtExCode{\the\catcode`\!} 
-   \edef\tkzPtVirCode{\the\catcode`\;} 
+   \edef\tkzTwoPtCode{\the\catcode`\:}
+   \edef\tkzPtExCode{\the\catcode`\!}
+   \edef\tkzPtVirCode{\the\catcode`\;}
    \catcode`\:=12 \catcode`\!=12 \catcode`\;=12
    }%
 \gdef\tkzActivOn{%
    \catcode`\:=\tkzTwoPtCode\relax
    \catcode`\!=\tkzPtExCode\relax
    \catcode`\;=\tkzPtVirCode\relax
-}% 
-%<------  Initialisation of the colors with tkzSetUpColors  -----------------> 
+}%
+%<------  Initialisation of the colors with tkzSetUpColors  ----------------->
 % Première macro SetUpColors %%%%%%%%%%%%%%%%%%%%%
 %Possible
 \pgfkeys{/tkzsucolor/.is family}
@@ -68,26 +68,26 @@
 \def\tkzSetUpColors{\pgfutil@ifnextchar[{\tkz@SetUpColors}{\tkz@SetUpColors[]}}
 \def\tkz@SetUpColors[#1]{\setupcolorkeys{@initial,#1,@apply}}
 
-%<------  Initialisation of all colors   -----------------> 
+%<------  Initialisation of all colors   ----------------->
 \pgfkeys{/tkzsupallcol/.cd,
          background/.store in       = \tkz@suac@bkc,
          text/.store in             = \tkz@suac@txt,
          background              = \tkz@backgroundcolor,% see tkz-base.cfg
          text                    = \tkz@textcolor% idem
-        } 
+        }
 \def\tkzSetUpAllColors{\pgfutil@ifnextchar[{\tkz@SetUpAllColors}{%
-                                 \tkz@SetUpAllColors[]}} 
+                                 \tkz@SetUpAllColors[]}}
 \def\tkz@SetUpAllColors[#1]{%
    \pgfqkeys{/tkzsupallcol}{#1} % now we redine the based colors
-   \def\tkz@fillcolor{\tkz@suac@bkc}   
+   \def\tkz@fillcolor{\tkz@suac@bkc}
    \def\tkz@mainlinecolor{\tkz@suac@txt}
    \def\tkz@textcolor{\tkz@suac@txt}
    \def\tkz@otherlinecolor{\tkz@suac@txt!50}
-   \def\tkz@sua@color{\tkz@suac@txt} 
+   \def\tkz@sua@color{\tkz@suac@txt}
    \tkzSetUpAxis[color=\tkz@suac@txt]
-   \tkzSetUpGrid[color=\tkz@suac@txt]      
+   \tkzSetUpGrid[color=\tkz@suac@txt]
    \pagecolor{\tkz@suac@bkc}
-   \color{\tkz@suac@txt}  
+   \color{\tkz@suac@txt}
 }
 %<--------------------------------------------------------------------------–>
 %              Pour savoir le nombre de décimales d'un nombre
@@ -125,7 +125,7 @@
    \expandafter\C@untToken
  \fi
 }
-% end code from JCC    
+% end code from JCC
 %<---------------------------------------------------------–>
 %            Tools
 %<---------------------------------------------------------–>
@@ -136,10 +136,10 @@
     \edef\@SubStringConditionalTemp{{#1}{#2}}%
     \expandafter\@SubStringConditional\@SubStringConditionalTemp
 }
-\def\@SubStringConditional #1#2{% 
-    \def\@TestSubS ##1#2##2\\{% 
-        \def\@TestTemp{##1}% 
-    }% 
+\def\@SubStringConditional #1#2{%
+    \def\@TestSubS ##1#2##2\\{%
+        \def\@TestTemp{##1}%
+    }%
     \@TestSubS #1#2\\
     \ifx\@MainString\@TestTemp
         \tkz@TestSubStringfalse
@@ -148,11 +148,11 @@
     \fi
     \iftkz@TestSubString
 }
-\def\RecursionMacroEnd #1#2#3{% 
+\def\RecursionMacroEnd #1#2#3{%
     #1\relax
-        \def\@RecursionMacroEndNext{#2}% 
+        \def\@RecursionMacroEndNext{#2}%
     \else
-        \def\@RecursionMacroEndNext{#3}% 
+        \def\@RecursionMacroEndNext{#3}%
     \fi
     \@RecursionMacroEndNext
 }
@@ -163,7 +163,7 @@
     \edef\@ReplaceSubRep{#4}%
     \@ReplaceSubStrings
 }
-\def\@ReplaceSubStrings{% 
+\def\@ReplaceSubStrings{%
     \RecursionMacroEnd
         {\if\SubStringConditional{\@ReplaceMain}{\@ReplaceSub}}%
       {\@ReplaceSubStringsDo}{\expandafter\edef\@ReplaceResult{\@ReplaceMain}}%
@@ -171,7 +171,7 @@
 \def\@ReplaceSubStringsDoX{%
     \def\@ReplaceSubStringsDoA ##1%
 }%
-\def\@ReplaceSubStringsDo{% 
+\def\@ReplaceSubStringsDo{%
     \expandafter\@ReplaceSubStringsDoX \@ReplaceSub
                                     ##2\@EndReplaceSubStrings{%
         \edef\@ReplaceMain{##1\@ReplaceSubRep ##2}%
@@ -185,7 +185,7 @@
       \let\tkz@numprint\numprint
       \let\numprint\relax
       }
-\def\EnabledNumprint{\let\numprint\tkz@numprint} 
+\def\EnabledNumprint{\let\numprint\tkz@numprint}
 %<---------------------------------------------------------–>
 \makeatother
 \endinput

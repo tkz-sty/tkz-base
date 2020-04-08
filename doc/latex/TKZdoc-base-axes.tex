@@ -1,6 +1,6 @@
 \section{Macros for the axes}
 
- \tkzHandBomb\ Careful, these macros have been modified. It's now easier to use the styles of \TIKZ. \tkzcname{tkzDrawX} allows to draw an axis, \tkzcname{tkzLabelX} places graduations and finally in simple cases \tkzcname{tkzAxeX} traces and graduations. The options of \TIKZ\ are accessible. 
+ \tkzHandBomb\ Careful, these macros have been modified. It's now easier to use the styles of \TIKZ. \tkzcname{tkzDrawX} allows to draw an axis, \tkzcname{tkzLabelX} places graduations and finally in simple cases \tkzcname{tkzAxeX} traces and graduations. The options of \TIKZ\ are accessible.
 Fractions can be used for graduations.
 %<--------------------------------------------------------------------->
 %                  tkzDrawX
@@ -40,7 +40,7 @@ options  & default & definition   \\
 \end{tikzpicture}
 
 \medskip
-This macro is used to draw the abscissa axis. The most important thing is to test all the options. Above, you have the values that define a tick. Otherwise the options of \TIKZ\ apply and in particular \tkzname{text}, \tkzname{color}, \tkzname{fill} and \tkzname{font}. 
+This macro is used to draw the abscissa axis. The most important thing is to test all the options. Above, you have the values that define a tick. Otherwise the options of \TIKZ\ apply and in particular \tkzname{text}, \tkzname{color}, \tkzname{fill} and \tkzname{font}.
 \end{NewMacroBox}
 
 \subsubsection{No tick, no label}
@@ -219,7 +219,7 @@ Two possibilities. It is possible to define the default style used for the math 
 \end{tkzexample}
 
 \subsubsection{Colour of the graduations}
-The key here is to use the color, text, and text options correctly. 
+The key here is to use the color, text, and text options correctly.
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
   \tkzInit[xmin = -2,xmax = 3,
@@ -232,7 +232,7 @@ The key here is to use the color, text, and text options correctly.
 \end{tkzexample}
 
 \subsubsection{Axis drawings before the graduation}
-In some cases, it is preferable to place \tkzcname{tkzDrawXY} after \tkzcname{tkzLabelX} and \tkzcname{tkzLabelY}. 
+In some cases, it is preferable to place \tkzcname{tkzDrawXY} after \tkzcname{tkzLabelX} and \tkzcname{tkzLabelY}.
 
 This prevents display problems.
 
@@ -251,7 +251,7 @@ This prevents display problems.
 \begin{tikzpicture}
    \tkzInit[xmin = -1,xmax = 4,
             ymin = -1,ymax = 1]
-   \tkzLabelX[orig=false] 
+   \tkzLabelX[orig=false]
    \tkzLabelY[orig=false]
    \tkzDrawXY
 \end{tikzpicture}
@@ -281,7 +281,7 @@ This prevents display problems.
 %<--------------------------------------------------------------------->
 \subsection{\tkzcname{tkzAxeX}}\hypertarget{ax}{}
 \begin{NewMacroBox}{tkzAxeX}{\oarg{local options}}%
-This macro allows you to draw the abscissa axis with default ticks as well as the graduations. It combines the two macros \tkzcname{tkzDrawX} and \tkzcname{tkzLabelX}. It should only be used in simple cases. 
+This macro allows you to draw the abscissa axis with default ticks as well as the graduations. It combines the two macros \tkzcname{tkzDrawX} and \tkzcname{tkzLabelX}. It should only be used in simple cases.
 
 \medskip
 \begin{tabular}{lll}%

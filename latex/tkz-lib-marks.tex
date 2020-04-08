@@ -9,17 +9,17 @@
 % version 2005/12/01 or later.
 %
 % This work has the LPPL maintenance status “maintained”.
-% 
+%
 % The Current Maintainer of this work is Alain Matthes.
 
 \def\fileversion{3.06c}
-\def\filedate{2020/03/18} 
-\typeout{2020/03/18 3.06c tkz-lib-symbols.tex}   
+\def\filedate{2020/03/18}
+\typeout{2020/03/18 3.06c tkz-lib-symbols.tex}
 \makeatletter
 %<--------------------------------------------------------------------------–>
 %  Création des symboles
 %<--------------------------------------------------------------------------–>
-\def\tkz@undefined{none}    
+\def\tkz@undefined{none}
 % double bar
 \pgfdeclareplotmark{||}
 {%
@@ -39,7 +39,7 @@
   \pgfpathmoveto{\pgfqpoint{3\pgflinewidth}{\pgfplotmarksize}}
   \pgfpathlineto{\pgfqpoint{3\pgflinewidth}{-\pgfplotmarksize}}
   \pgfusepathqstroke
-} 
+}
 % An bar slant
 
 \pgfdeclareplotmark{s|}
@@ -49,32 +49,32 @@
   \pgfpathlineto{\pgfqpoint{.70710678\pgfplotmarksize}%
                            {.70710678\pgfplotmarksize}}
   \pgfusepathqstroke
-} 
+}
 
 % An double bar slant
 
 \pgfdeclareplotmark{s||}
 {%
  \pgfpathmoveto{\pgfqpoint{-0.75\pgfplotmarksize}{-\pgfplotmarksize}}
- \pgfpathlineto{\pgfqpoint{0.25\pgfplotmarksize}{\pgfplotmarksize}} 
+ \pgfpathlineto{\pgfqpoint{0.25\pgfplotmarksize}{\pgfplotmarksize}}
  \pgfpathmoveto{\pgfqpoint{0\pgfplotmarksize}{-\pgfplotmarksize}}
- \pgfpathlineto{\pgfqpoint{1\pgfplotmarksize}{\pgfplotmarksize}} 
+ \pgfpathlineto{\pgfqpoint{1\pgfplotmarksize}{\pgfplotmarksize}}
  \pgfusepathqstroke
-}   
+}
 \pgfdeclareplotmark{s|||}
 {%
  \pgfpathmoveto{\pgfqpoint{-0.75\pgfplotmarksize}{-\pgfplotmarksize}}
- \pgfpathlineto{\pgfqpoint{0.25\pgfplotmarksize}{\pgfplotmarksize}} 
+ \pgfpathlineto{\pgfqpoint{0.25\pgfplotmarksize}{\pgfplotmarksize}}
  \pgfpathmoveto{\pgfqpoint{0\pgfplotmarksize}{-\pgfplotmarksize}}
  \pgfpathlineto{\pgfqpoint{1\pgfplotmarksize}{\pgfplotmarksize}}
  \pgfpathmoveto{\pgfqpoint{0.75\pgfplotmarksize}{-\pgfplotmarksize}}
- \pgfpathlineto{\pgfqpoint{1.75\pgfplotmarksize}{\pgfplotmarksize}} 
+ \pgfpathlineto{\pgfqpoint{1.75\pgfplotmarksize}{\pgfplotmarksize}}
  \pgfusepathqstroke
-} 
+}
 % z
 \pgfdeclareplotmark{z}
 {%
-  \pgfpathmoveto{\pgfqpoint{0.75\pgfplotmarksize}{-\pgfplotmarksize}} 
+  \pgfpathmoveto{\pgfqpoint{0.75\pgfplotmarksize}{-\pgfplotmarksize}}
   \pgfpathlineto{\pgfqpoint{-0.75\pgfplotmarksize}{-\pgfplotmarksize}}
   \pgfpathlineto{\pgfqpoint{0.75\pgfplotmarksize}{\pgfplotmarksize}}
   \pgfpathlineto{\pgfqpoint{-0.75\pgfplotmarksize}{\pgfplotmarksize}}
@@ -83,42 +83,42 @@
 % s
 \pgfdeclareplotmark{s}
 {%
-   \pgfpathmoveto{\pgfqpoint{0pt}{0pt}} 
+   \pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
    \pgfpathcurveto
        {\pgfpoint{0pt}{0pt}}
        {\pgfpoint{-\pgfplotmarksize}{\pgfplotmarksize}}
        {\pgfpoint{\pgfplotmarksize}{\pgfplotmarksize}}
-   \pgfpathmoveto{\pgfqpoint{0pt}{0pt}} 
+   \pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
     \pgfpathcurveto
        {\pgfpoint{0pt}{0pt}}
        {\pgfpoint{\pgfplotmarksize}{-\pgfplotmarksize}}
-       {\pgfpoint{-\pgfplotmarksize}{-\pgfplotmarksize}} 
+       {\pgfpoint{-\pgfplotmarksize}{-\pgfplotmarksize}}
     \pgfusepathqstroke
-}  
+}
 % infinity
 \pgfdeclareplotmark{oo}
 {%
-   \pgfpathmoveto{\pgfqpoint{0pt}{0pt}} 
+   \pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
    \pgfpathcurveto
        {\pgfpoint{0pt}{0pt}}
        {\pgfpoint{.5\pgfplotmarksize}{1\pgfplotmarksize}}
        {\pgfpoint{\pgfplotmarksize}{0pt}}
-   \pgfpathmoveto{\pgfqpoint{0pt}{0pt}} 
+   \pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
     \pgfpathcurveto
        {\pgfpoint{0pt}{0pt}}
        {\pgfpoint{-.5\pgfplotmarksize}{1\pgfplotmarksize}}
-       {\pgfpoint{-\pgfplotmarksize}{0pt}}  
-   \pgfpathmoveto{\pgfqpoint{0pt}{0pt}}  
+       {\pgfpoint{-\pgfplotmarksize}{0pt}}
+   \pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
       \pgfpathcurveto
        {\pgfpoint{0pt}{0pt}}
        {\pgfpoint{.5\pgfplotmarksize}{-1\pgfplotmarksize}}
        {\pgfpoint{\pgfplotmarksize}{0pt}}
-   \pgfpathmoveto{\pgfqpoint{0pt}{0pt}} 
+   \pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
     \pgfpathcurveto
        {\pgfpoint{0pt}{0pt}}
        {\pgfpoint{-.5\pgfplotmarksize}{-1\pgfplotmarksize}}
-       {\pgfpoint{-\pgfplotmarksize}{0pt}}      
+       {\pgfpoint{-\pgfplotmarksize}{0pt}}
     \pgfusepathqstroke
-} 
+}
 \makeatother
 \endinput

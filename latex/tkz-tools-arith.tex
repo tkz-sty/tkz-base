@@ -9,16 +9,16 @@
 % version 2005/12/01 or later.
 %
 % This work has the LPPL maintenance status “maintained”.
-% 
+%
 % The Current Maintainer of this work is Alain Matthes.
 %  utf8 encoding
 \def\fileversion{3.06c}
-\def\filedate{2020/03/18} 
-\typeout{2020/03/18 3.06c tkz-tools-arith.tex}    
+\def\filedate{2020/03/18}
+\typeout{2020/03/18 3.06c tkz-tools-arith.tex}
 % 1.161  test if "isfactor"   is already defined
 % now with pgf 3.0  gcd isprime isodd iseven are defined
 %<--------------------------------------------------------------------------–>
-% Objet :  tools for arithmetic 
+% Objet :  tools for arithmetic
 %<--------------------------------------------------------------------------–>
 %    [About integers numbers]
 %<--------------------------------------------------------------------------–>
@@ -27,7 +27,7 @@
 % \catcode`\@=11\relax
 \makeatletter
 %<--------------------------------------------------------------------------–>
-%                            arithmetic tools 
+%                            arithmetic tools
 %<--------------------------------------------------------------------------–>
 \tkzutil@ifundefined{pgfmath@function@gcd}{%
 \pgfmathdeclarefunction{gcd}{2}{%
@@ -37,17 +37,17 @@
     \pgfmath@xb=#2pt\relax%
     \ifdim\pgfmath@xa=0pt \pgfmathcontinueloopfalse
      \pgfmath@xa=\pgfmath@xb
-    \fi 
+    \fi
      \ifdim\pgfmath@xb=0pt \pgfmathcontinueloopfalse
        \pgfmath@xb=\pgfmath@xa
     \fi
 \loop
-\ifpgfmathcontinueloop 
+\ifpgfmathcontinueloop
  \ifdim \pgfmath@xa=\pgfmath@xb\pgfmathcontinueloopfalse
  \else
-  \ifdim \pgfmath@xa>\pgfmath@xb 
+  \ifdim \pgfmath@xa>\pgfmath@xb
    \advance \pgfmath@xa by-\pgfmath@xb
-  \else 
+  \else
    \advance \pgfmath@xb by-\pgfmath@xa
   \fi
   \fi
@@ -56,15 +56,15 @@
   \pgfmath@smuggleone\pgfmathresult
   \endgroup
 }
-}{} 
+}{}
 %<--------------------------------------------------------------------------->
 \tkzutil@ifundefined{pgfmath@function@isprime}{%
 \pgfmathdeclarefunction{isprime}{1}{%
 	\begingroup%
 \pgf@unknowntrue
-\c@pgfmath@counta#1\relax% 
- \ifcase#1\relax 
- % |#1| = 0 
+\c@pgfmath@counta#1\relax%
+ \ifcase#1\relax
+ % |#1| = 0
  \pgf@isaprimefalse\pgf@unknownfalse
  \or
  % |#1| = 1
@@ -77,22 +77,22 @@
   \pgf@isaprimetrue\pgf@unknownfalse
    \else
  % |#1| > 3
-   \ifodd#1\relax 
+   \ifodd#1\relax
    \else
     \pgf@isaprimefalse\pgf@unknownfalse
    \fi
- \fi  
+ \fi
 \ifpgf@unknown
 \c@pgfmath@countd=\thr@@ \pgf@isaprimetrue
  \loop
- \c@pgfmath@countb=\c@pgfmath@counta  
+ \c@pgfmath@countb=\c@pgfmath@counta
  \divide\c@pgfmath@countb by\c@pgfmath@countd
   \ifnum\c@pgfmath@countb>\c@pgfmath@countd \pgf@unknowntrue
   \else\pgf@unknownfalse\fi
     \multiply\c@pgfmath@countb by\c@pgfmath@countd
-  \ifnum\c@pgfmath@countb=\c@pgfmath@counta  
+  \ifnum\c@pgfmath@countb=\c@pgfmath@counta
    \global\pgf@isaprimefalse\pgf@unknownfalse\fi
-  \ifpgf@unknown\advance\c@pgfmath@countd by 2\relax% 
+  \ifpgf@unknown\advance\c@pgfmath@countd by 2\relax%
  \repeat
 \fi
 \ifpgf@isaprime
@@ -102,55 +102,55 @@
 \fi
  \pgfmath@smuggleone\pgfmathresult%
 \endgroup
-}}{}  
+}}{}
 %<--------------------------------------------------------------------------->
-\tkzutil@ifundefined{pgfmath@function@isodd}{%   
-\pgfmathdeclarefunction{isodd}{1}{%  
+\tkzutil@ifundefined{pgfmath@function@isodd}{%
+\pgfmathdeclarefunction{isodd}{1}{%
 \begingroup
 \ifodd #1 \def\pgfmathresult{1}%
 \else\def\pgfmathresult{0}%
 \fi
  \pgfmath@smuggleone\pgfmathresult%
 \endgroup}
-}{}  
+}{}
 %<--------------------------------------------------------------------------->
 \tkzutil@ifundefined{pgfmath@function@isfactor}{%
-   \pgfmathdeclarefunction{isfactor}{2}{%  
-\begingroup 
-\c@pgfmath@counta#1\relax%   
-\c@pgfmath@countb#2\relax%   
+   \pgfmathdeclarefunction{isfactor}{2}{%
+\begingroup
+\c@pgfmath@counta#1\relax%
+\c@pgfmath@countb#2\relax%
 \c@pgfmath@countc#1\relax%
 \divide\c@pgfmath@counta by\c@pgfmath@countb%
-\multiply\c@pgfmath@counta by\c@pgfmath@countb% 
+\multiply\c@pgfmath@counta by\c@pgfmath@countb%
 \advance\c@pgfmath@countc by-\c@pgfmath@counta%
 \ifnum\c@pgfmath@countc=0 \def\pgfmathresult{1}%
 \else
   \def\pgfmathresult{0}%
   \fi
 \pgfmath@smuggleone\pgfmathresult%
-\endgroup} 
-}{}  
+\endgroup}
+}{}
 %<--------------------------------------------------------------------------->
-\def\tkzfactors#1{% 
+\def\tkzfactors#1{%
 \begingroup
-\c@pgfmath@countb#1 
-\pgfmathisprime{\c@pgfmath@countb}% 
-\ifnum\pgfmathresult=1 
+\c@pgfmath@countb#1
+\pgfmathisprime{\c@pgfmath@countb}%
+\ifnum\pgfmathresult=1
    \number\c@pgfmath@countb\ % prime number
 \else% we can found factors
-\tkz@factors{#1} 
+\tkz@factors{#1}
 \fi
-\endgroup}% 
+\endgroup}%
 %<--------------------------------------------------------------------------–>
 \def\tkz@factors#1{%
 \begingroup
-\c@pgfmath@countb#1 
+\c@pgfmath@countb#1
 \c@pgfmath@countd2\relax
  \loop
- \ifodd\c@pgfmath@countb\relax% 
+ \ifodd\c@pgfmath@countb\relax%
  \else
   \divide\c@pgfmath@countb by2 %
-   \number\c@pgfmath@countd\ % 
+   \number\c@pgfmath@countd\ %
  \repeat%
 %%%%%%%%%%%%%%
 \def\tkzprim@last{1}%
@@ -164,7 +164,7 @@
    \divide\c@pgfmath@countb by\c@pgfmath@countd\relax
    \number\c@pgfmath@countd\ %  affiche le facteur
 \repeat% end first loop
-%%%%%%%%%%%%%%   
+%%%%%%%%%%%%%%
 \endgroup%
 }%
 %<--------------------------------------------------------------------------->
@@ -179,15 +179,15 @@
      \advance\c@pgfmath@countc by-\c@pgfmath@counta
       \let\tkz@find@next=\tkz@find@last
      \else
-     \let\tkz@find@next=\relax%   
+     \let\tkz@find@next=\relax%
      \fi
      \tkz@find@next
 }%
 %<--------------------------------------------------------------------------->
-\def\tkzReducFrac#1#2{% 
+\def\tkzReducFrac#1#2{%
 \begingroup
 \ifnum#1<0\relax%
-   \c@pgfmath@counta=0\relax 
+   \c@pgfmath@counta=0\relax
    \advance\c@pgfmath@counta by-#1
  \else
     \c@pgfmath@counta#1
@@ -198,16 +198,16 @@
  \ifnum\c@pgfmath@counta=0\relax
    \c@pgfmath@counta#1
    \c@pgfmath@countb#2
- \else 
+ \else
    \c@pgfmath@counta#1
    \c@pgfmath@countb#2
    \divide\c@pgfmath@counta by\c@pgfmath@countc%
    \divide\c@pgfmath@countb by\c@pgfmath@countc%
  \fi
 \xdef\tkzMathFirstResult{\the\c@pgfmath@counta}
-\xdef\tkzMathSecondResult{\the\c@pgfmath@countb} 
+\xdef\tkzMathSecondResult{\the\c@pgfmath@countb}
 \endgroup}
 %<--------------------------------------------------------------------------->
-%\catcode`\@=\tkzAtCode\relax 
+%\catcode`\@=\tkzAtCode\relax
 \makeatother
 \endinput

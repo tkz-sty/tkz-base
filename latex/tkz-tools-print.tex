@@ -9,15 +9,15 @@
 % version 2005/12/01 or later.
 %
 % This work has the LPPL maintenance status “maintained”.
-% 
+%
 % The Current Maintainer of this work is Alain Matthes.
 %  utf8 encoding
 \def\fileversion{3.06c}
-\def\filedate{2020/03/18} 
-\typeout{2020/03/18 3.06c  tkz-tools-print.tex}  
+\def\filedate{2020/03/18}
+\typeout{2020/03/18 3.06c  tkz-tools-print.tex}
 \makeatletter
 %<------------- tkzPrintFrac ---------------------------------->
-\def\tkzPrintFrac#1#2{% 
+\def\tkzPrintFrac#1#2{%
 \begingroup
 \tkzReducFrac{#1}{#2}
 \xdef\tkzprintfrac{$     \frac{\tkzMathFirstResult}{\tkzMathSecondResult}$}%
@@ -33,7 +33,7 @@
         \else
           \xdef\tkzprintfrac{$\tkzMathFirstResult$}%
        \fi\fi
- \else 
+ \else
    \ifnum\tkzMathFirstResult=1 %
           \xdef\tkzprintfrac{$\tkzmathstyle\frac{1}{\tkzMathSecondResult}$}%
      \else
@@ -42,7 +42,7 @@
         \else
      \xdef\tkzprintfrac{$\tkzmathstyle\frac{\tkzMathFirstResult}{%
                              \tkzMathSecondResult}$}%
- \fi\fi\fi\fi   
+ \fi\fi\fi\fi
 \endgroup}
 %<------------- tkzPrintFracWithPi ---------------------------------->
 \def\tkzPrintFracWithPi#1#2{%
@@ -63,7 +63,7 @@
           		\xdef\tkzprintfrac{$\tkzMathFirstResult\pi$}%
        		\fi
 		\fi
-	\else 
+	\else
    		\ifnum\tkzMathFirstResult=1 %
     		\xdef\tkzprintfrac{%
 								$\tkzmathstyle\frac{\pi}{\tkzMathSecondResult}$
@@ -80,7 +80,7 @@
      		\fi
 	  	\fi
 	\fi
-\fi   
+\fi
 \endgroup
 }%
 

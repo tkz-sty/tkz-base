@@ -1,30 +1,30 @@
-\section{Texts and Legends} 
+\section{Texts and Legends}
 
-\subsection{Placing a title}  
+\subsection{Placing a title}
 Of course you can use \TIKZ, but the macro I propose to allow you to place the text using the units chosen for the drawing.
 
-The options are always those of \TIKZ, in particular the following ones: 
+The options are always those of \TIKZ, in particular the following ones:
 \begin{NewMacroBox}{tkzText}{\oarg{local options}\parg{dot}\var{text}}%
 The point can either be given by its coordinates or by its name.
 
-\begin{tabular}{lll}%  
+\begin{tabular}{lll}%
 \toprule
 options  & default & definition\\
 \midrule
 \TOline{color   }{|black|}{current colour}
 \TOline{text    }{|black|}{text colour}
-\TOline{fill    }{|white|}{background colour} 
-\TOline{opacity }{|1|    }{opacity} 
+\TOline{fill    }{|white|}{background colour}
+\TOline{opacity }{|1|    }{opacity}
 \end{tabular}
 \end{NewMacroBox}
 
-\subsubsection{A title} 
+\subsubsection{A title}
 
 \begin{tkzexample}[latex=8cm]
 \begin{tikzpicture}
   \tkzInit[xmax  = 6,   ymin  = 1000,%
            ymax  = 4000,ystep = 1000]
-  \tkzAxeXY 
+  \tkzAxeXY
   \tkzText[draw,
            line width = 1pt,%
            color    = red,%
@@ -33,7 +33,7 @@ options  & default & definition\\
 \end{tikzpicture}
 \end{tkzexample}
 
-\subsubsection{Draft} 
+\subsubsection{Draft}
 
 \begin{tkzexample}[latex=8cm]
 \begin{tikzpicture}
@@ -55,7 +55,7 @@ It is possible to give the reference of a point instead of its coordinates.
 \begin{tkzexample}[latex=8cm]
 \begin{tikzpicture}
   \tkzInit[ymax=5,xmax=6]
-  \tkzAxeXY 
+  \tkzAxeXY
   \tkzDefPoint(3,3){A}
   \tkzText[draw,opacity=.6,
            inner sep=.6 cm,
@@ -71,7 +71,7 @@ It is possible to give the reference of a point instead of its coordinates.
 \begin{tkzexample}[latex=8cm,small]
 \begin{tikzpicture}
  \tkzInit[ymax=5,xmax=6]
- \tkzAxeXY 
+ \tkzAxeXY
  \tkzText[draw,opacity=.6,
           inner sep=.6 cm,
           line width = 1pt,
@@ -80,35 +80,35 @@ It is possible to give the reference of a point instead of its coordinates.
           text width=3cm](3,3)
           {My text\\\ Reference}
 \end{tikzpicture}
-\end{tkzexample}    
+\end{tkzexample}
 
 \subsection{Placing legends}
 There are two ways to use this macro. Either you can place legends for curves. Then you can represent lines with their own style, or you can differentiate symbols (mark).
 \hypertarget{legend}{}
 \begin{NewMacroBox}{tkzLegend}{\oarg{local options}\var{mark/color/size/text}}%
-The arguments differ according to the boolean \tkzname{line}. 
+The arguments differ according to the boolean \tkzname{line}.
 
 \medskip
-\begin{tabular}{lll}%  
+\begin{tabular}{lll}%
 \toprule
 options  & default & definition\\
 \midrule
 \TOline{line}{false}{Boolean: line or symbol}
 \end{tabular}
- 
+
 With |line=true|
 
-\begin{tabular}{lll}  
+\begin{tabular}{lll}
 \toprule
 arguments  & default & example\\
 \midrule
 \TAline{style/line width/color/text}{no default}{dashed/1pt/red/Product Recipe B}
-\end{tabular}  
+\end{tabular}
 
 \medskip
 With |line=false|
-  
-\begin{tabular}{lll}  
+
+\begin{tabular}{lll}
 \toprule
 arguments  & default & example\\
 \midrule

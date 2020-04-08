@@ -9,22 +9,22 @@
 % version 2005/12/01 or later.
 %
 % This work has the LPPL maintenance status “maintained”.
-% 
+%
 % The Current Maintainer of this work is Alain Matthes.
 %  utf8 encoding
 \def\fileversion{3.06c}
-\def\filedate{2020/03/18} 
-\typeout{2020/03/18 3.06c  tkz-obj-BB.tex}  
+\def\filedate{2020/03/18}
+\typeout{2020/03/18 3.06c  tkz-obj-BB.tex}
 \makeatletter
 %<--------------------------------------------------------------------------–>
-\pgfkeys{/tkzClip/.cd, 
+\pgfkeys{/tkzClip/.cd,
 space/.store in    = {\tkz@CLI@space},
-space    = {}} 
+space    = {}}
 
-\def\tkzClip{\pgfutil@ifnextchar[{\tkz@Clip}{\tkz@Clip[]}} 
+\def\tkzClip{\pgfutil@ifnextchar[{\tkz@Clip}{\tkz@Clip[]}}
 \def\tkz@Clip[#1]{%
 
-\pgfqkeys{/tkzClip}{#1} 
+\pgfqkeys{/tkzClip}{#1}
 \ifx\tkzutil@empty\tkz@CLI@space
     \clip (\tkz@xa,\tkz@ya) rectangle (\tkz@xb,\tkz@yb);
  \else
@@ -34,7 +34,7 @@ space    = {}}
  \edef\tkz@yyb{\fpeval{\tkz@yb+\tkz@CLI@space}}
   \clip (\tkz@xxa,\tkz@yya) rectangle (\tkz@xxb,\tkz@yyb);
 \fi
-} 
+}
 %<--------------------------------------------------------------------------–>
 \def\tkzSetBB(#1)(#2){%
   \pgfresetboundingbox
@@ -53,14 +53,14 @@ space    = {}}
   \path[use as bounding box] (tkz@SW) rectangle (tkz@NE) ;
 }
 %<--------------------------------------------------------------------------–>
-\def\tkzShowBB{\pgfutil@ifnextchar[{\tkz@ShowBB}{\tkz@ShowBB[]}} 
+\def\tkzShowBB{\pgfutil@ifnextchar[{\tkz@ShowBB}{\tkz@ShowBB[]}}
 \def\tkz@ShowBB[#1]{%
- \draw[#1]  (current bounding box.south west) rectangle 
+ \draw[#1]  (current bounding box.south west) rectangle
  			(current bounding box.north east);
 }
 %<--------------------------------------------------------------------------–>
 \def\tkzClipBB{%
-\clip   (current bounding box.south west) rectangle 
+\clip   (current bounding box.south west) rectangle
  		(current bounding box.north east);
 }
 %<--------------------------------------------------------------------------–>

@@ -9,15 +9,15 @@
 % version 2005/12/01 or later.
 %
 % This work has the LPPL maintenance status “maintained”.
-% 
+%
 % The Current Maintainer of this work is Alain Matthes.
 
 
 \def\fileversion{3.06c}
-\def\filedate{2020/03/18} 
-\typeout{2020/03/18 3.06c  tkz-obj-points.tex} 
+\def\filedate{2020/03/18}
+\typeout{2020/03/18 3.06c  tkz-obj-points.tex}
 %<--------------------------------------------------------------------------–>
-%                             init def point 
+%                             init def point
 %<--------------------------------------------------------------------------–>
 \makeatletter
 %<--------------------------------------------------------------------------–>
@@ -60,7 +60,7 @@
 %<--------------------------------------------------------------------------–>
 \def\tkz@parsecoordinate#1{%
 \tkz@getseparator#1,\@nil
-\iftkz@polar 
+\iftkz@polar
    \tkz@getfrompolar#1\@nil
 \else
    \tkz@getfromcart#1\@nil
@@ -72,13 +72,13 @@
 \else
    \tkz@polarfalse
 \fi
-}      
+}
 \def\tkz@getfrompolar#1:#2\@nil{%
 \edef\tkz@a{\fpeval{#1}}
 \edef\tkz@r{\fpeval{#2}}
 \xdef\tkz@polarrad{\tkz@r}
 \xdef\tkz@polarangle{\tkz@a}
-} 
+}
 \def\tkz@getfromcart#1,#2\@nil{%
 \edef\tkz@x{\fpeval{#1}}
 \edef\tkz@y{\fpeval{#2}}
@@ -88,17 +88,17 @@
 %<--------------------------------------------------------------------------–>
 %           options pour point definition
 %<--------------------------------------------------------------------------–>
-\pgfkeys{/tkzPt/.cd,  
+\pgfkeys{/tkzPt/.cd,
          polar/.is if       = tkz@pt@polar,
          polar/.default     = true,
-         polar              = false  
+         polar              = false
 }
 %<--------------------------------------------------------------------------–>
-%        tkz@ptStar  
+%        tkz@ptStar
 %<--------------------------------------------------------------------------–>
 \def\tkz@ptStar[#1](#2,#3)#{%
-\pgfkeys{/tkzPt/.cd, polar     = false} 
-\pgfqkeys{/tkzPt}{#1}  
+\pgfkeys{/tkzPt/.cd, polar     = false}
+\pgfqkeys{/tkzPt}{#1}
 \iftkz@pt@polar%
   \edef\tkz@x{\fpeval{#3*cosd(#2)}}
   \edef\tkz@y{\fpeval{#3*sind(#2)}}
@@ -116,15 +116,15 @@
 %<--------------------------------------------------------------------------–>
 \def\tkzDefPoint{\pgfutil@ifnextchar[{\tkz@DefPoint}{\tkz@DefPoint[]}}
 
-\def\tkz@DefPoint[#1](#2)#{% 
+\def\tkz@DefPoint[#1](#2)#{%
 \tkz@parsecoordinate{#2}
 \iftkz@polar
    \tkz@ptStar[polar](\tkz@polarangle,\tkz@polarrad){tkz@coord@temp}
-\else  
+\else
     \tkz@ptStar[](#2){tkz@coord@temp}
 \fi
 \tkz@DefPointEnd[#1]
-}% 
+}%
 \def\tkz@DefPointEnd[#1]#2{\coordinate[#1] (#2) at (tkz@coord@temp);}
 %<--------------------------------------------------------------------------–>
 %                            tkzDefPoints
@@ -140,13 +140,13 @@
   \else
     \expandafter\@secondoftwo
   \fi
-  {\tkz@absorb@bad@arg}% 
+  {\tkz@absorb@bad@arg}%
   {\foreach \ptx/\pty/\name in {#2}{\tkzDefPoint[#1](\ptx,\pty){\name}}%
    \endgroup}%
 }
 \def\tkz@absorb@bad@arg#1){\endgroup}
 %<--------------------------------------------------------------------------–>
-\def\tkz@node#1{\path[coordinate](\tkzpt@xa,\tkzpt@ya) coordinate(#1);}  
+\def\tkz@node#1{\path[coordinate](\tkzpt@xa,\tkzpt@ya) coordinate(#1);}
 % \def\tkz@drawnode#1{\path[coordinate](\tkzpt@xa,\tkzpt@ya) coordinate(#1);
 %              \tkz@DrawPt{#1}
 %              }
@@ -156,14 +156,14 @@
 \pgfkeys{/tkzsetuppt/.cd,
       size/.store in       =  \tkz@pt@size,
       color/.store in      =  \tkz@pt@color,
-      fill/.store in       =  \tkz@pt@fill, 
+      fill/.store in       =  \tkz@pt@fill,
       shape/.store in      =  \tkz@pt@shape,
       size                 =  \tkz@euc@pointsize,
       color                =  \tkz@euc@pointcolor,
       fill                 =  \tkz@euc@pointcolor,
       shape                =  \tkz@euc@pointshape,
    /tkzsetuppt/.search also  = {/tikz},
- } 
+ }
 \def\tkzSetUpPoint{\pgfutil@ifnextchar[{\tkz@SetUpPoint}{%
                                         \tkz@SetUpPoint[]}}
 \def\tkz@SetUpPoint[#1]{%
@@ -178,36 +178,36 @@
       }
    }% end setup
 %<--------------------------------------------------------------------------–>
-%                       Draw Point   
+%                       Draw Point
 %<--------------------------------------------------------------------------–>
-\pgfkeys{/tkzdrawpt/.cd, 
+\pgfkeys{/tkzdrawpt/.cd,
   size/.code   = {\tikzset{point style/.append style={minimum size = #1}}},
   size         = \tkz@euc@pointsize,
   /tkzdrawpt/.search also  = {/tikz},
 }
-%<--------------------------------------------------------------------------    
-\def\tkzDrawPoint{\pgfutil@ifnextchar[{\tkz@DrawPoint}{\tkz@DrawPoint[]}} 
+%<--------------------------------------------------------------------------
+\def\tkzDrawPoint{\pgfutil@ifnextchar[{\tkz@DrawPoint}{\tkz@DrawPoint[]}}
 \def\tkz@DrawPoint[#1](#2){%
-\begingroup 
-    \pgfqkeys{/tkzdrawpt}{#1}    
+\begingroup
+    \pgfqkeys{/tkzdrawpt}{#1}
     \node[point style,/tkzdrawpt/.cd,#1] at (#2) {};%2016
 \endgroup
 }
-%<--------------------------------------------------------------------------–> 
-\def\tkzDrawPoints{\pgfutil@ifnextchar[{\tkz@drawpts}{\tkz@drawpts[]}} 
-%<--------------------------------------------------------------------------–> 
+%<--------------------------------------------------------------------------–>
+\def\tkzDrawPoints{\pgfutil@ifnextchar[{\tkz@drawpts}{\tkz@drawpts[]}}
+%<--------------------------------------------------------------------------–>
 \def\tkz@drawpts[#1](#2){%
 \begingroup
-   \pgfqkeys{/tkzdrawpt}{#1}        
+   \pgfqkeys{/tkzdrawpt}{#1}
    \foreach \point in {#2}{\node[point style,/tkzdrawpt/.cd,#1] at (\point) {};} %2016
-\endgroup 
+\endgroup
 }
 %<--------------------------------------------------------------------------–>
-% 
+%
 %<--------------------------------------------------------------------------–>
 \def\tkzRenamePoint(#1)#2{\coordinate (#2) at (#1);}
 \def\tkz@RenamePointEnd[#1]#2{\coordinate[#1] (#2) at (\tkz@ax,\tkz@ay);}
-\def\tkzGetPoint#1{\coordinate  (#1) at (tkzPointResult);} 
+\def\tkzGetPoint#1{\coordinate  (#1) at (tkzPointResult);}
 \def\tkzGetPoints#1#2{\coordinate  (#1) at (tkzFirstPointResult);
                       \coordinate  (#2) at (tkzSecondPointResult);}
 \def\tkzGetFirstPoint#1{\coordinate  (#1) at (tkzFirstPointResult);}
@@ -223,22 +223,22 @@
 \def\tkzDefShiftPoint[#1](#2)#3{%
    \tkz@@extractxy{#1}
    \tkz@ax\pgf@x %
-   \tkz@ay\pgf@y %   
+   \tkz@ay\pgf@y %
 \begin{scope}[shift={(\tkz@ax,\tkz@ay)}]
    \coordinate  (#3) at (#2);
 \end{scope}
 }
 %<-------------------------------------------------------------------------–>
 %                   tkzLabelPoint          Affichage des LABELS pour un point
-%<-------------------------------------------------------------------------–>  
+%<-------------------------------------------------------------------------–>
 \tikzset{label style/.style={\tkz@euc@pointpos,\tkz@euc@labelcolor,
                      font=\normalsize}}
-\def\tkzLabelPoint{\pgfutil@ifnextchar[{\tkz@LabelPoint}{\tkz@LabelPoint[]}} 
+\def\tkzLabelPoint{\pgfutil@ifnextchar[{\tkz@LabelPoint}{\tkz@LabelPoint[]}}
 \def\tkz@LabelPoint[#1](#2)#3{%
       \node[label style,#1] at (#2) {#3};}%
 %<--------------------------------------------------------------------------–>
 
-\def\tkzLabelPoints{\pgfutil@ifnextchar[{\tkz@LabelPoints}{\tkz@LabelPoints[]}}% 
+\def\tkzLabelPoints{\pgfutil@ifnextchar[{\tkz@LabelPoints}{\tkz@LabelPoints[]}}%
 \def\tkz@LabelPoints[#1](#2){%
  \foreach \point in {#2}{
       \node[label style,#1] at (\point) {$\point$};}
@@ -252,20 +252,20 @@
     dist                       = 0.15,
    /tkzautolab/.search also   = {/tikz},
 }
-\def\tkzAutoLabelPoints{\pgfutil@ifnextchar[{\tkz@AutoLabelPoints}{\tkz@AutoLabelPoints[]}}% 
+\def\tkzAutoLabelPoints{\pgfutil@ifnextchar[{\tkz@AutoLabelPoints}{\tkz@AutoLabelPoints[]}}%
 \def\tkz@AutoLabelPoints[#1](#2){%
-\begingroup 
-\pgfqkeys{/tkzautolab}{#1} 
+\begingroup
+\pgfqkeys{/tkzautolab}{#1}
  \foreach \point in {#2}{
  \path (\tkz@center) -- ($ (\point) + \tkz@dist*($(\point)-(\tkz@center)$) $) node[/tkzautolab/.cd,#1]{$\point$};}
 \endgroup
 }%
 %<--------------------------------------------------------------------------–>
-%                                 PointShowCoord  
+%                                 PointShowCoord
 %<--------------------------------------------------------------------------–>
 \pgfkeys{/tkzprcoord/.cd,
           xlabel/.store in    = \tkz@xlabel,
-          ylabel/.store in    = \tkz@ylabel, 
+          ylabel/.store in    = \tkz@ylabel,
           xstyle/.code        = {\tikzset{xcoord style/.append style={#1}}},
           ystyle/.code        = {\tikzset{ycoord style/.append style={#1}}},
           noxdraw/.is if      = tkz@coord@noxdraw,
@@ -277,20 +277,20 @@
           xstyle              = {},
           ystyle              = {},
           noxdraw             = false,
-          noydraw             = false,    
+          noydraw             = false,
   /tkzprcoord/.search also   = {/tikz},
 }
-\def\tkzPointShowCoord{\pgfutil@ifnextchar[{\tkz@PointShowCoord}{\tkz@PointShowCoord[]}}     
+\def\tkzPointShowCoord{\pgfutil@ifnextchar[{\tkz@PointShowCoord}{\tkz@PointShowCoord[]}}
 \def\tkz@PointShowCoord[#1](#2){%
-\begingroup 
-\pgfqkeys{/tkzprcoord}{#1} 
+\begingroup
+\pgfqkeys{/tkzprcoord}{#1}
 % 2019 for showcoord
  \iftkznodedefined{tkz@xline}{}{%
  \path (0,0) --(1,0) node(tkz@xline){};
  \path (0,0) --(0,1) node(tkz@yline){};
  }
-\iftkz@coord@noxdraw\else\draw[arrow coord style,/tkzprcoord/.cd,#1] (#2)--(#2 |- tkz@xline);\fi 
-\iftkz@coord@noydraw\else\draw[arrow coord style,/tkzprcoord/.cd,#1] (#2)--(#2 -| tkz@yline);\fi   
+\iftkz@coord@noxdraw\else\draw[arrow coord style,/tkzprcoord/.cd,#1] (#2)--(#2 |- tkz@xline);\fi
+\iftkz@coord@noydraw\else\draw[arrow coord style,/tkzprcoord/.cd,#1] (#2)--(#2 -| tkz@yline);\fi
 \ifx\tkzutil@empty\tkz@xlabel
 \else
 \path (#2)--(#2 |- tkz@xline)
@@ -300,15 +300,15 @@
 \else
  \path (#2)--(#2 -| tkz@yline)
    node[ycoord style] {\tkz@ylabel};
-\fi    
+\fi
 \endgroup
 }
 \let\tkzShowPointCoord\tkzPointShowCoord
 %<--------------------------------------------------------------------------–>
-%                    Coordonnées d'un point 
+%                    Coordonnées d'un point
 %    result in #2x et #2y    #1 est le point et on récupère ses coordonnées
 % usage soit A un point \tkzGetPointCoord(A){V} alors \Vx = xA et \Vy = yA
-% en cm 
+% en cm
 % tkzGetPointCoord avec [#1] cm ou bien pt ?? todo
 %<--------------------------------------------------------------------------–>
 \def\tkzGetPointCoord(#1)#2{%
@@ -316,17 +316,17 @@
    \pgfextractx{\pgf@x}{\pgfpointanchor{#1}{center}}
    \pgfmathparse{\pgf@sys@tonumber{\pgf@x}/28.45274}
    \global\let\tkzresultx\pgfmathresult
-   \global\expandafter\edef\csname #2x\endcsname{\tkzresultx}% 
+   \global\expandafter\edef\csname #2x\endcsname{\tkzresultx}%
    \pgfextracty{\pgf@y}{\pgfpointanchor{#1}{center}}
    \pgfmathparse{\pgf@sys@tonumber{\pgf@y}/28.45274}
    \global\let\tkzresulty\pgfmathresult
    \global\expandafter\edef\csname #2y\endcsname{\tkzresulty}
 \endgroup
-}  
+}
 \def\tkz@@extractxy#1{%
 \pgfextractx{\pgf@x}{\pgfpointanchor{#1}{center}}
-\pgfextracty{\pgf@y}{\pgfpointanchor{#1}{center}} 
+\pgfextracty{\pgf@y}{\pgfpointanchor{#1}{center}}
 }
 \let\tkzGetPointxy\tkzGetPointCoord
-\makeatother  
+\makeatother
 \endinput

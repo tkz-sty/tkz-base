@@ -1,4 +1,4 @@
-% tkz-obj-grids.tex    
+% tkz-obj-grids.tex
 % Copyright 2020  Alain Matthes
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
@@ -9,13 +9,13 @@
 % version 2005/12/01 or later.
 %
 % This work has the LPPL maintenance status “maintained”.
-% 
+%
 % The Current Maintainer of this work is Alain Matthes.
 
 %  utf8 encoding
 \def\fileversion{3.06c}
 \def\filedate{2020/03/18}
-\typeout{2020/03/18 3.06c  tkz-obj-grids.tex}   
+\typeout{2020/03/18 3.06c  tkz-obj-grids.tex}
 \makeatletter
 %<--------------------------------------------------------------------------–>
 %              Setup   Grid
@@ -25,18 +25,18 @@
 		color/.store in         	= \tkz@sug@color,
 	  line width  					   = \tkz@grid@lw,
 	  color       					   = \tkz@grid@color
-        } 
+        }
 
-\def\tkzSetUpGrid{\pgfutil@ifnextchar[{\tkz@SetUpGrid}{\tkz@SetUpGrid[]}} 
+\def\tkzSetUpGrid{\pgfutil@ifnextchar[{\tkz@SetUpGrid}{\tkz@SetUpGrid[]}}
 \def\tkz@SetUpGrid[#1]{%
 \begingroup
 \pgfqkeys{/tkzsugrid}{#1}
 \global\let\tkz@grid@lw\tkz@sug@lw
-\global\let\tkz@grid@color\tkz@sug@color 
+\global\let\tkz@grid@color\tkz@sug@color
 \endgroup
 }
 %<--------------------------------------------------------------------------–>
-%         tkzGrid  
+%         tkzGrid
 %<--------------------------------------------------------------------------–>
 \pgfkeys{/tkzGrid/.cd,
  	color/.code          	= {\def\tkz@gd@color{#1}%
@@ -51,24 +51,24 @@
  	sub/.default         	= true ,
 	sub        				    = false,
 	color      				    = \tkz@grid@color,
-	ratio    					    = 0.75, 
+	ratio    					    = 0.75,
 	subxstep   				    = \tkz@grid@xstep,
 	subystep   				    = \tkz@grid@ystep,
 	line width 				    = \tkz@grid@lw,
   /tkzGrid/.search also= {/tikz},
-} 
+}
 %<--------------------------------------------------------------------------–>
 \def\tkzGrid{\pgfutil@ifnextchar[{\tkz@Grid}{\tkz@Grid[]}}
 \def\tkz@Grid[#1]{\@ifnextchar({\tkz@@Grid[#1]}%
                                {\tkz@@Grid[#1](\tkz@tmp@xa,\tkz@tmp@ya)(\tkz@tmp@xb,\tkz@tmp@yb)}}
 \def\tkz@@Grid[#1](#2,#3)(#4,#5){%
-  \pgfqkeys{/tkzGrid}{#1}   
+  \pgfqkeys{/tkzGrid}{#1}
     \begingroup
 	 \edef\tkz@gxa{\fpeval{(#2-\tkz@init@xorigine)/\tkz@init@xstep}}
 	 \edef\tkz@gxb{\fpeval{(#4-\tkz@init@xorigine)/\tkz@init@xstep}}
 	 \edef\tkz@gya{\fpeval{(#3-\tkz@init@yorigine)/\tkz@init@ystep}}
 	 \edef\tkz@gyb{\fpeval{(#5-\tkz@init@yorigine)/\tkz@init@ystep}}
-    \iftkz@gd@sub% 
+    \iftkz@gd@sub%
       \edef\@subxstep{\fpeval{\tkz@gd@subxstep/\tkz@init@xstep}}%
       \edef\@subystep{\fpeval{\tkz@gd@subystep/\tkz@init@ystep}}%
       \draw [xstep      = \@subxstep cm,%
