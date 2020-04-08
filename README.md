@@ -1,6 +1,6 @@
-# tkz-base — Tools for drawing with a cartesian coordinate system
+# tkz-base
 
-Release 3.06c 2020/03/20
+Release 3.06c 2020/04/06
 
 ## Description
 
@@ -12,7 +12,7 @@ an unique couple of coordinates.
 
 ## Licence
 
-The `tkz-base` package may be modified and distributed under the terms and
+The scontents package may be modified and distributed under the terms and
 conditions of the [LaTeX Project Public
 License](https://www.latex-project.org/lppl/), version 1.3c or greater.
 
@@ -35,7 +35,6 @@ installation `TDS` tree or in your `TEXMFHOME`:
 
 ```
   doc/TKZdoc-base.pdf -> TDS:doc/latex/tkz-doc/TKZdoc-base.pdf
-  doc/README.md       -> TDS:doc/latex/tkz-doc/README.md
   doc/examples/*.*    -> TDS:doc/latex/tkz-doc/examples/*.*
   doc/sourcedoc/*.*   -> TDS:doc/latex/tkz-doc/sourcedoc/*.*
   code/*.*            -> TDS:tex/latex/tkz-doc/*.*
