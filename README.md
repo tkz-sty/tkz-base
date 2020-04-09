@@ -17,11 +17,13 @@ The `tkz-base` package may be modified and distributed under the terms and
 conditions of the [LaTeX Project Public
 License](https://www.latex-project.org/lppl/), version 1.3c or greater.
 
-## Features and requirements
+## Requirements
 
-- Needs [xfp](https://www.ctan.org/pkg/xfp), [numprint](https://www.ctan.org/pkg/numprint).
-- Requires and loads [PGF/TikZ](https://www.ctan.org/pkg/pgf) > 3.0.
-- Compiles with utf8, pdflatex, lualatex.
+The package compiles with utf8, pdflatex and lualatex, loads and depends on updated versions of:
+
+- [xfp](https://ctan.org/pkg/xfp)
+- [numprint](https://ctan.org/pkg/numprint)
+- [tikz](https://ctan.org/pkg/tikz)
 
 ## Installation
 
@@ -60,12 +62,11 @@ With `\usepackage{tkz-euclide}` you don't need to use `\usetkzobj`.
 
 ## Documentation
 
-Documentations for `tkz-base` and `tkz-euclide`  are available on CTAN and your
-distribution.
+Documentation for `tkz-base` is available on `CTAN` and in your TeX distribution. Use `texdoc tkz-base`.
 
 ## Examples
 
-All  examples given in documentation will be stored on CTAN as standalone
+All  examples given in documentation will be stored on `CTAN` as standalone
 files, ready for compilation. You can use the main.tex file to load and
 compile  an example.
 
