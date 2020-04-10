@@ -1,7 +1,7 @@
 \section{Marks or symbols}
 
-I distinguished between the points used in Euclidean geometry and the "marks or
-symbols" that can be found in statistics.
+I distinguished between the points used in Euclidean geometry and the \enquote{marks or
+symbols} that can be found in statistics.
 
 To position the symbol, we use the macro \tkzcname{tkzDefPoint} to correctly
 define a point, then the macro \tkzcname{tkzDrawMark} to draw the symbol.
@@ -9,8 +9,8 @@ define a point, then the macro \tkzcname{tkzDrawMark} to draw the symbol.
 It is common to have to draw a scatter plot, so I created a macro that allows
 you to define several points quickly.
 
-A "mark" symbol can be scaled, which is sometimes useful, but, on the other
-hand, if you change the abscissa and ordinates differently then the "marks" are
+A \enquote{mark} symbol can be scaled, which is sometimes useful, but, on the other
+hand, if you change the abscissa and ordinates differently then the \enquote{marks} are
 distorted.
 
 Reminder: it was already possible to create a cloud of points with the macro
@@ -18,7 +18,7 @@ Reminder: it was already possible to create a cloud of points with the macro
 point, which is sometimes tedious. The macro \tkzcname{tkzSetOfPoints} allows to
 define points \tkzname{tkzPt1}, \tkzname{tkzPt2}, etc.
 
-This is frequently referred to as the "scatter plot". The difference from the
+This is frequently referred to as the \enquote{scatter plot}. The difference from the
 macro \tkzcname{tkzDefPoints} is that the reference to the points is given by a
 prefix (default |tkzPt|) and the point number.
 
@@ -138,7 +138,7 @@ options &  default & example                 \\
   \tkzText[draw,color = red,
         fill  = orange!20](3,5800)%
         {Revenue by month}
-  \end{tikzpicture}
+\end{tikzpicture}
 \end{tkzexample}
 
 \subsection{\tkzcname{tkzDrawMark}}
@@ -178,6 +178,7 @@ options             & default & definition   \\
 \end{NewMacroBox}
 
 \subsubsection{Mark and plot; use of \tkzcname{tkzDrawMarks}}
+
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
   \tkzInit[xmax=6,ymin=1000,

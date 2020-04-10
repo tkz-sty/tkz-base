@@ -48,12 +48,13 @@ with the library \tkzname{quotes}.}
 
 \tkzname{shift} allows the points to be placed in relation to each other.
 
-\begin{tkzexample}[latex=7cm,small]
+\begin{tkzexample}[latex=8cm,small]
 \begin{tikzpicture}[trim left=-1cm]
   \tkzDefPoint(2,3){A}
   \tkzDefPoint[shift={(2,3)}](31:3){B}
   \tkzDefPoint[shift={(2,3)}](158:3){C}
-  \tkzDrawSegments[color=red,line width=1pt](A,B A,C)
+  \tkzDrawSegments[color=red,
+                   line width=1pt](A,B A,C)
   \tkzDrawPoints[color=red](A,B,C)
 \end{tikzpicture}
 \end{tkzexample}
@@ -61,7 +62,7 @@ with the library \tkzname{quotes}.}
 \subsection{Placing a label with the library \tkzname{quotes}}
 
 I prefer not to mix operations and use \tkzcname{tkzLabelPoint} to place labels.
-See the section "The  Quotes Syntax" in the \TIKZ\ manual.
+See the section \enquote{The  Quotes Syntax} in the \TIKZ\ manual.
 
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[trim left=-1cm]
@@ -100,7 +101,7 @@ Here we must follow the syntax of \tkzNamePack{xfp}. It is always possible to go
 through \tkzNamePack{pgfmath} but in this case, the coordinates must be
 calculated before using the macro \tkzcname{tkzDefPoint}.
 
-\begin{tkzexample}[latex=6cm,small]
+\begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[scale=.75]
   \tkzInit[xmax=6,ymax=6]
   \tkzGrid
@@ -364,7 +365,7 @@ arguments &  default & definition \\
 \end{tabular}
 
 \medskip
-Warning at the final "s", an oversight leads to cascading errors if you attempt
+Warning at the final \enquote{s}, an oversight leads to cascading errors if you attempt
 to plot multiple points. The options are the same as for the previous macro.
 \end{NewMacroBox}
 
@@ -710,14 +711,13 @@ It was already possible to create a scatter plot with the macro
 point, which is sometimes tedious. The macro \tkzcname{tkzSetOfPoints} allows to
 define points \tkzname{tkzPt1}, \tkzname{tkzPt2}, etc.
 
-This is frequently referred to as \hypertarget{label_tkzDefSetOfPoints}{"scatter plot"}.
+This is frequently referred to as \hypertarget{label_tkzDefSetOfPoints}{\enquote{scatter plot}}.
 The difference from the macro \tkzcname{tkzDefPoints} is that
 the reference to the points is given by a prefix (default \tkzname{tkzPt}) and
 the point number.
 The points are not drawn.
 
-\begin{NewMacroBox}{tkzDefSetOfPoints}{\oarg{local
-options}\var{$x_1/y_1,x_2/y_2,\ldots,x_n/y_n$}}%
+\begin{NewMacroBox}{tkzDefSetOfPoints}{\oarg{local options}\var{$x_1/y_1,x_2/y_2,\ldots,x_n/y_n$}}%
 \begin{tabular}{lll}%
 arguments &  default & definition  \\
 \midrule

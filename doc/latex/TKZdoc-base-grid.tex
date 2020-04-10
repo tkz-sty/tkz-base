@@ -1,7 +1,7 @@
 \section{Use of \tkzcname{tkzGrid}} \hypertarget{grid}{}
 
-\begin{NewMacroBox}{tkzGrid}{\oarg{local options}\parg{$x_A~;~y_A$}
-\parg{$x_B~;~y_B$}}%
+\begin{NewMacroBox}{tkzGrid}{\oarg{local options}\parg{$x_A~;~y_A$}\parg{$x_B~;~y_B$}}%
+
 A few changes for this macro. First of all, to simplify currently the color of
 the thinnest grid is determined automatically from the main grid, same process
 for the thickness.  This behavior can be modified using styles.
@@ -33,8 +33,9 @@ See the examples to change this behavior.
 \subsubsection{\tkzcname{tkzGrid} and the option \tkzname{sub}}
 
 The option \tkzname{sub} allows you to display a finer secondary grid.
-It is preferable to run \tkzcname{tkzGrid} first,
- to prevent the grid from being overlapped with other elements.
+It is preferable to run \tkzcname{tkzGrid} first, to prevent the grid
+from being overlapped with other elements.
+
 \begin{tkzexample}[latex=8cm,small]
 \begin{tikzpicture}
   \tkzInit[xmax=4, ymax=2]
@@ -48,7 +49,7 @@ It is preferable to run \tkzcname{tkzGrid} first,
 The option \tkzname{sub} allows to display a finer secondary grid. Some
 parameters are modifiable.
 
-\begin{tkzexample}[latex=6cm,small]
+\begin{tkzexample}[latex=8cm,small]
 \def\tkzCoeffSubColor{20}% instead of 50
 \def\tkzCoeffSubLw{0.2}% instead of 0.75
 \begin{tikzpicture}
@@ -62,7 +63,7 @@ parameters are modifiable.
 
 \subsubsection{Almost Default}
 
-\begin{tkzexample}[width=7cm,small]
+\begin{tkzexample}[width=8cm,small]
 \begin{tikzpicture}
   \tkzInit[xmax=5,ymax=2]
   \tkzGrid[color=orange]
@@ -72,7 +73,7 @@ parameters are modifiable.
 
 \subsubsection{Under the grid, too, option \tkzname{sub}}
 
-\begin{tkzexample}[width=7cm,small]
+\begin{tkzexample}[width=8cm,small]
 \begin{tikzpicture}
   \tkzInit[xmax=5,ymax=2]
   \tkzGrid[sub,color=orange]
@@ -83,7 +84,7 @@ parameters are modifiable.
 
 \subsubsection{Grid change}
 
-\begin{tkzexample}[width=7cm,small]
+\begin{tkzexample}[width=8cm,small]
 \begin{tikzpicture}
   \tkzInit[xmax=5,ymax=2]
   \tkzGrid[color    = orange,
@@ -96,7 +97,7 @@ parameters are modifiable.
 
 \subsubsection{Option \tkzname{xstep}, \tkzname{xstep}, \tkzname{subxstep} and \tkzname{subystep}}
 
-\begin{tkzexample}[latex=7cm,small]
+\begin{tkzexample}[latex=8cm,small]
 \begin{tikzpicture}
   \tkzInit[xmax=.5,xstep=.1,
            ymax=.2,ystep=.1]
@@ -110,7 +111,7 @@ parameters are modifiable.
 
 \subsubsection{With large intervals}
 
-\begin{tkzexample}[width=7cm,small]
+\begin{tkzexample}[width=8cm,small]
 \begin{tikzpicture}
   \tkzInit[xmax=100,xstep=20,
            ymax=3000,ystep=1000]
@@ -124,6 +125,7 @@ parameters are modifiable.
 \subsubsection{\tkzcname{tkzGrid} and the arguments}
 
 The grid can be any size.
+
 \begin{tkzexample}[width=8cm,small]
 \begin{tikzpicture}
   \tkzInit[xmax=100,xstep=20,

@@ -24,8 +24,7 @@ options  & default & definition   \\
 \TOline{right space}{0.5 cm} {axis extended right}
 \TOline{left space} {0 cm}   {extension of the axis to the left}
 \TOline{label}      {$x$}    {label name}
-\TOline{trig}       {0}      {if <>0 graduations are multiples of $pi$/trig"
-"trig is an integer"}
+\TOline{trig}       {0}      {if <>0 graduations are multiples of $pi$/trig \enquote{trig is an integer}}
 \TOline{tickwd}     {0.8pt}  {tick thickness}
 \TOline{tickup}     {1pt}    {tick over axis}
 \TOline{tickdn}     {1pt}    {tick depth over axis}
@@ -88,10 +87,11 @@ The option \tkzname{right=12pt} shifts the label $x$ by 12 pt.
 
 It adds a little space after the last tick.
 
-\begin{tkzexample}[latex=6cm,small]
+\begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
   \tkzInit[xmax=0.4,xstep=0.1]
-  \tkzDrawX[text=blue,color=red,right=12pt,right space=1]
+  \tkzDrawX[text=blue,color=red,
+            right=12pt,right space=1]
 \end{tikzpicture}
 \end{tkzexample}
 
@@ -100,7 +100,7 @@ It adds a little space after the last tick.
 If $number=0$ then the axis is graduated from cm to cm, otherwise the axis is
 graduated using multiples of $\frac{\pi}{number}$.
 
-\begin{tkzexample}[latex=6cm,small]
+\begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
   \tkzInit[xmin=0,xmax=4,ymin=-1,ymax=1]
   \tkzDrawX[trig=1]
@@ -109,7 +109,7 @@ graduated using multiples of $\frac{\pi}{number}$.
 
 \subsubsection{Trigonometric axis with the option \tkzname{trig=2}}
 
-\begin{tkzexample}[latex=6cm,small]
+\begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
   \tkzInit[xmin=0,xmax=4,ymin=-1,ymax=1]
   \tkzDrawX[trig=2]
@@ -131,25 +131,25 @@ The options are those of \TIKZ, plus the following ones:
 \toprule
 options  & default & definition   \\
 \midrule
-\TOline{frac}  {0}{if <>0  graduations  are multiples num/frac "frac is an
-integer"}
-\TOline{trig}  {0}{if <>0  graduations are multiples $pi$/trig  "trig is an
-integer"}
-\TOline{font} {\BS textstyle} {scale size.}
-\TOline{color}  {black} {graduation color}
+\TOline{frac}  {0}{if <>0  graduations  are multiples num/frac \enquote{frac is an integer}}
+\TOline{trig}  {0}{if <>0  graduations are multiples $pi$/trig \enquote{trig is an integer}}
+\TOline{font}  {\BS textstyle} {scale size}
+\TOline{color} {black} {graduation color}
 \TOline{step}  {1} {interval between graduations}
-\TOline{np off}  {false} {numprint deactivation}
+\TOline{np off}{false} {numprint deactivation}
 \TOline{orig}  {true} {displays the origin graduation }
 \bottomrule
 \end{tabular}
 
 {\tkzname{frac} and \tkzname{trig} are integers that can be changed to
-fractional or trigonometric writing. }
+fractional or trigonometric writing.}
 \end{NewMacroBox}
+
+\newpage
 
 \subsubsection{Position of the graduations}
 
-\begin{tkzexample}[latex=6cm,small]
+\begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
   \tkzInit[xmax=.5,xstep=0.1]
   \tkzDrawX[label=$t$,text=blue,color=red]
@@ -159,7 +159,7 @@ fractional or trigonometric writing. }
 
 \subsubsection{Position of the graduations with \tkzname{xlabel style}}
 
-\begin{tkzexample}[latex=5cm,small]
+\begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
   \tkzInit[xmin=1000,xmax=4000,xstep=1000]
   \tkzDrawX
@@ -171,7 +171,8 @@ fractional or trigonometric writing. }
 \subsubsection{Dates with \tkzname{np off}}
 
 For dates, you have to deactivate numprint.
-\begin{tkzexample}[latex=5cm,small]
+
+\begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
   \tkzInit[xmin=2000,xmax=2004]
   \tkzDrawX
@@ -182,7 +183,7 @@ For dates, you have to deactivate numprint.
 
 \subsubsection{\tkzname{frac}}
 
-\begin{tkzexample}[latex=6cm,small]
+\begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
   \tkzInit[xmax=1.75,xstep=0.33333]
   \tkzDrawX[label=$t$,text=blue,color=red]
@@ -192,7 +193,7 @@ For dates, you have to deactivate numprint.
 
 \subsubsection{\tkzname{trig}}
 
-\begin{tkzexample}[latex=6cm,small]
+\begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
   \tkzInit[xmin=0,xmax=5,ymin=-1,ymax=1]
   \tkzDrawX[trig=2]
@@ -209,7 +210,7 @@ mode:
 \let\tkzmathstyle\textstyle
 \end{tkzltxexample}
 
-\begin{tkzexample}[latex=6cm,small]
+\begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
   \tkzInit[xmin=0,xmax=5,ymin=-1,ymax=1]
   \tkzDrawX[trig=2]
@@ -217,7 +218,9 @@ mode:
 \end{tikzpicture}
 \end{tkzexample}
 
-\begin{tkzexample}[latex=6cm,small]
+\newpage
+
+\begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
   \tkzInit[xmin=0,xmax=5,ymin=-1,ymax=1]
   \let\tkzmathstyle\textstyle
@@ -227,7 +230,7 @@ mode:
 \end{tikzpicture}
 \end{tkzexample}
 
-\begin{tkzexample}[latex=6cm,small]
+\begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
   \tkzInit[xmin=0,xmax=5,ymin=-1,ymax=1]
   \tkzDrawX[trig=2]
@@ -236,7 +239,7 @@ mode:
 \end{tikzpicture}
 \end{tkzexample}
 
-\begin{tkzexample}[latex=6cm,small]
+\begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
   \tkzInit[xmin=0,xmax=5,ymin=-1,ymax=1]
   \tkzDrawX[trig=2]
@@ -287,6 +290,8 @@ This prevents display problems.
 \end{tikzpicture}
 \end{tkzexample}
 
+\newpage
+
 \subsubsection{Only positive graduations before drawings}
 
 \begin{tkzexample}[latex=7cm,small]
@@ -324,8 +329,7 @@ options  & default & definition   \\
 \TOline{label} {$x$}{label name}
 \TOline{trig} {0}{if <>0, graduations are multiples of $pi$/trig}
 \TOline{frac} {0}{if <>0, graduations are multiples of 1/frac}
-\TOline{swap} {false}{allows you to run \tkzcname{tkzLabelX} before
-\tkzcname{tkzDrawX}}
+\TOline{swap} {false}{allows you to run \tkzcname{tkzLabelX} before \tkzcname{tkzDrawX}}
 \bottomrule
 \end{tabular}
 
@@ -343,7 +347,7 @@ The option \tkzname{text} defines the color of the graduations.
 
 \subsubsection{Use of \tkzname{pi} and \tkzcname{tkzAxeX}}
 
-\begin{tkzexample}[latex=5cm,small]
+\begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
   \tkzInit[xmax=4,ymax=3.5]
   \let\tkzmathstyle\displaystyle
@@ -358,7 +362,7 @@ The option \tkzname{text} defines the color of the graduations.
 In this example, we position the $t$ label as well as the graduations.
 \tkzcname{below=10pt} is used to place the graduations underneath.
 
-\begin{tkzexample}[latex=5cm,small]
+\begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
   \tkzInit[xmax=9,xstep=3,ymax=3.5]
   \tkzLabelX[below=10pt,orig=false,frac=3]
@@ -386,8 +390,7 @@ options  & default & definition   \\
 \TOline{up space}   {0.5 cm} {top axis extension}
 \TOline{down space} {0 cm}{axis extension down}
 \TOline{label}      {$x$}{label name}
-\TOline{trig}    {0}{if <>0, graduations are multiples of $pi$/trig "trig is an
-integer" }
+\TOline{trig}    {0}{if <>0, graduations are multiples of $pi$/trig \enquote{trig is an integer}}
 \TOline{tickwd}     {0.8pt}{tick's thickness}
 \TOline{ticklt}     {1pt}{height of the tick above the axis}
 \TOline{tickrt}     {1pt}{above-axis tick depth}
@@ -405,22 +408,21 @@ The options are those of \TIKZ\ plus the following ones:
 \toprule
 options  & default & definition   \\
 \midrule
-\TOline{color}  {black} {graduation color}
-\TOline{frac} {0}{if <>0, graduations are multiples of $1$/frac "frac is an
-integer"}
-\TOline{font} {\BS textstyle} {graduation size.}
-\TOline{step}  {1} {interval between graduations}
+\TOline{color}{black} {graduation color}
+\TOline{frac} {0}{if <>0, graduations are multiples of $1$/frac \enquote{frac is an integer}}
+\TOline{font} {\BS textstyle} {graduation size}
+\TOline{step} {1} {interval between graduations}
 \bottomrule
 \end{tabular}
 
-{\tkzname{frac} is a integer that can be changed to fractional or trigonometric
-writing.}
+{\tkzname{frac} is a integer that can be changed to fractional or trigonometric writing.}
 \end{NewMacroBox}
 
 %<--------------------------------------------------------------------->
 %                  tkzAxeY
 %<--------------------------------------------------------------------->
 \subsection{\tkzcname{tkzAxeY}}\hypertarget{ay}{}
+
 \begin{NewMacroBox}{tkzAxeY}{\oarg{local options}}%
 This macro combines the two macros:
 \tkzcname{tkzDrawY} \tkzcname{tkzLabelY}
@@ -429,7 +431,8 @@ See \tkzcname{tkzAxeX} for options.
 %<--------------------------------------------------------------------->
 %                  tkzAxeXY
 %<--------------------------------------------------------------------->
-\subsection{\tkzcname{tkzAxeXY}}  \hypertarget{axy}{}
+\subsection{\tkzcname{tkzAxeXY}} \hypertarget{axy}{}
+
 \begin{NewMacroBox}{tkzAxeXY}{\oarg{local options}}%
 This macro combines the four macros:
 \tkzcname{tkzDrawX}\tkzcname{tkzDrawY} \tkzcname{tkzLabelX}\tkzcname{tkzLabelY}
@@ -476,6 +479,7 @@ It is necessary to use common options as in the example below.
 \end{NewMacroBox}
 
 \subsubsection{Common colour and empty labels}
+
 \begin{tkzexample}[latex=6cm,small]
 \begin{tikzpicture}
   \tkzInit[xmin=-1,xmax=4,ymin=-1,ymax=1]
@@ -491,6 +495,10 @@ It is necessary to use common options as in the example below.
   \tkzDrawXY[label={},color=red,trig=4]
 \end{tikzpicture}
 \end{tkzexample}
+
+\enlargethispage{2cm}
+
+\newpage
 %<--------------------------------------------------------------------->
 %                  tkzLabelXY
 %<--------------------------------------------------------------------->
@@ -505,6 +513,7 @@ It is necessary to use common options as in the example below.
 \end{NewMacroBox}
 
 \subsubsection{}
+
 \begin{tkzexample}[latex=6cm,small]
 \begin{tikzpicture}
   \tkzInit[xmin=-1,xmax=4,ymin=-1,ymax=1]
@@ -546,6 +555,6 @@ You have to run \tkzcname{tkzSetUpAxis} again to retrieve the default values.
 \tkzSetUpAxis[line width=1pt,tickwd=1pt,ticka=2pt,tickb=2pt]
 \end{tkzltxexample}
 
-\tkzSetUpAxis[line width=1pt,tickwd=1pt,ticka=2pt,tickb=2pt]
+%\tkzSetUpAxis[line width=1pt,tickwd=1pt,ticka=2pt,tickb=2pt]
 
 \endinput
