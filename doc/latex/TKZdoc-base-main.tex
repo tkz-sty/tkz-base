@@ -92,9 +92,6 @@
  ]
 \usepackage{unicode-math}
 \usepackage{fourier-otf}
-\makeatletter
-\newfontfamily\zorna{ORNA4___.TTF}%\if@tkzcadre \usepackage{zorna} \fi
-\makeatother
 \usepackage{datetime,multicol,lscape}
 \usepackage[english]{babel}
 \usepackage[autolanguage]{numprint}
@@ -104,10 +101,11 @@
 \usepackage{shortvrb,fancyvrb}
 \renewcommand{\labelitemi}{--}
 \AtBeginDocument{\MakeShortVerb{\|}} % link to shortvrb
-\pdfcompresslevel=9
+% \pdfcompresslevel=9 % default in luatex
 \setlength\parindent{0pt}
 \RequirePackage{makeidx}
 \usepackage{csquotes}
+\usepackage{pgfornament}
 % \usepackage{lua-visual-debug} % for debug boxes
 %\@twocolumnfalse
 \makeindex
@@ -120,7 +118,6 @@
 %<--------------------------------------------------------------------------->
 \begin{document}
 
-\parindent=0pt
 \author{\tkzauthorofpack}
 \title{\tkznameofpack}
 \date{\today}
@@ -130,23 +127,55 @@
 \null
 \makeatletter
 \if@tkzcadre
+% Check to see if this font is installed system-wide or is on the path
+\IfFontExistsTF{ORNA4___.TTF}{%
+\typeout{Load ORNA4 font}
+\newfontfamily\zorna{ORNA4___.TTF}
 \AddToShipoutPicture*{%
 \setlength\unitlength{1mm}
 \put(70,120){%
 \begin{tikzpicture}
- \node at (30pt,30pt){\fontsize{60}{60}\selectfont \zorna{c}};
- \node at (270pt,30pt){\fontsize{60}{60}\selectfont \zorna{d}};
- \node at (30pt,210pt){\fontsize{60}{60}\selectfont \zorna{a}};
- \node at (270pt,210pt){\fontsize{60}{60}\selectfont \zorna{b}};
- \draw[line width=2pt,double,color=MidnightBlue,
- fill=myblue!10,opacity=.5] (0,0) rectangle (300pt,240pt);
- \node[text width=240pt] at (150 pt,120 pt){%
+  \node at (30pt,30pt){\fontsize{60}{60}\selectfont \zorna{c}};
+  \node at (270pt,30pt){\fontsize{60}{60}\selectfont \zorna{d}};
+  \node at (30pt,210pt){\fontsize{60}{60}\selectfont \zorna{a}};
+  \node at (270pt,210pt){\fontsize{60}{60}\selectfont \zorna{b}};
+  \draw[line width=2pt,double,color=MidnightBlue,
+        fill=myblue!10,opacity=.5] (0,0) rectangle (300pt,240pt);
+  \node[text width=240pt] at (150 pt,120 pt){%
   \begin{center}
-      \color{MidnightBlue}
-      \fontsize{24}{48}
-      \selectfont tkz-base
- \end{center}};
-\end{tikzpicture}}
+    \color{MidnightBlue}
+    \fontsize{24}{48}
+    \selectfont tkz-base
+  \end{center}};
+\end{tikzpicture}}}
+}{
+% If not, use pgfornament :)
+\typeout{Load pgfornament font}
+\AddToShipoutPicture*{%
+\setlength\unitlength{1mm}
+\put(70,120){%
+\begin{tikzpicture}
+  \coordinate (A) at (0pt,240pt);
+  \coordinate (B) at (300pt,240pt);
+  \coordinate (C) at (300pt,0pt);
+  \coordinate (D) at (0pt,0pt);
+  \begin{scope}[opacity=0.5] % for opacity
+    \pgfornamentline[color=MidnightBlue]{[xshift=1.65cm,yshift=-1mm]A}{[xshift=-1.58cm,,yshift=-1mm]B}{1}{88}; % AB
+    \pgfornamentline[color=MidnightBlue]{[xshift=1.65cm,yshift=1.5mm]D}{[xshift=-1.58cm,yshift=1.5mm]C}{1}{88};
+    \pgfornamentline[color=MidnightBlue]{[xshift=2.2mm,yshift=-1.59cm]A}{[xshift=2.2mm,yshift=1.59cm]D}{1}{88};
+    \pgfornamentline[color=MidnightBlue]{[xshift=-1.2mm,yshift=-1.59cm]B}{[xshift=-1.2mm,yshift=1.59cm]C}{1}{88};
+  \end{scope}
+  \node[anchor=north west] at (A) {\pgfornament[color=MidnightBlue,opacity=0.5,width=1.5cm]{61}}; % A
+  \node[anchor=north east] at (B) {\pgfornament[color=MidnightBlue,opacity=0.5,width=1.5cm,symmetry=v]{61}};% B
+  \node[anchor=south east] at (C) {\pgfornament[color=MidnightBlue,opacity=0.5,width=1.5cm,symmetry=c]{61}}; % C
+  \node[anchor=south west] at (D) {\pgfornament[color=MidnightBlue,opacity=0.5,width=1.5cm,symmetry=h]{61}}; % D
+  \node[text width=240pt] at (150 pt,120 pt){%
+  \begin{center}
+    \color{MidnightBlue}
+    \fontsize{24}{48}
+    \selectfont tkz-base
+  \end{center}};
+\end{tikzpicture}}}
 }
 \else
 \fi
@@ -217,7 +246,6 @@ archives.
 \include{TKZdoc-base-faq}
 %<------------------------------------------------------------------------
 \clearpage\newpage
-\makeatletter
 
 \begin{multicols}{2}
 \small\printindex

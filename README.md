@@ -6,7 +6,6 @@ Release 3.06c 2020/04/06
 
 The package `tkz-base` provides some tools like a Cartesian (rectangular)
 coordinate system to other packages like `tkz-euclide` or `tkz-fct`.
-
 With this package, you can draw coordinate axis, grids, draw points, the
 principle  is to specify the position of any point in two-dimensional space by
 an unique couple of coordinates.
@@ -43,7 +42,7 @@ installation `TDS` tree or in your `TEXMFHOME`:
   code/*.*            -> TDS:tex/latex/tkz-doc/*.*
 ```
 
-## How to use it
+## How to use
 
 To use the package `tkz-base`, place the following lines in the preamble of
 your LaTeX document.
@@ -58,7 +57,7 @@ The line `\usetkzobj{all}` loads all objects used by `tkz-euclide`.
 
 With `\usepackage{tkz-euclide}` you don't need to use `\usetkzobj`.
 
-> To avoid package conflicts, you need to load `xcolor` before `TikZ` or `tkz-base` or `tkz-euclide`.
+To avoid package conflicts, you need to load `xcolor` before `TikZ` or `tkz-base` or `tkz-euclide`.
 
 ## Documentation
 
