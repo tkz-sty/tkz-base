@@ -65,12 +65,14 @@ end
 -- Setting variables for package files
 sourcefiledir = "code"
 docfiledir    = "doc"
-docfiles      = { "sourcedoc/*.*", "examples/*.*" }
+docfiles      = { "TKZdoc-base.pdf", "sourcedoc/*.*", "examples/*.*" }
 sourcefiles   = {"tkz-*.*"}
-installfiles  = {"tkz-*.*"}
+installfiles  = {"tkz-*.*", "README.md"}
 
 -- Setting file locations for local instalation (TDS)
 tdslocations = {
+  "doc/latex/tkz-base/TKZdoc-base.pdf",
+  "doc/latex/tkz-base/README.md",
   "doc/latex/tkz-base/sourcedoc/tiger.pdf",
   "doc/latex/tkz-base/sourcedoc/TKZdoc-base-axes.tex",
   "doc/latex/tkz-base/sourcedoc/TKZdoc-base-BB.tex",
@@ -88,6 +90,7 @@ tdslocations = {
   "doc/latex/tkz-base/sourcedoc/TKZdoc-base-rep.tex",
   "doc/latex/tkz-base/sourcedoc/TKZdoc-base-style.tex",
   "doc/latex/tkz-base/sourcedoc/TKZdoc-base-texte.tex",
+  "doc/latex/tkz-base/examples/preamble-standalone.ltx",
   "doc/latex/tkz-base/examples/tkzBase-10.1.1.tex",
   "doc/latex/tkz-base/examples/tkzBase-10.2.1.tex",
   "doc/latex/tkz-base/examples/tkzBase-10.3.1.tex",
@@ -250,6 +253,17 @@ function update_tag(file, content, tagname, tagdate)
                           "\\ProvidesPackage{(.-)}%[%d%d%d%d%/%d%d%/%d%d %d+.%d+%a* %s*(.-)%]",
                           "\\ProvidesPackage{%1}["..tkzbased.." "..tkzbasev.." %2]")
   end
+  if string.match(file, "%.cfg$") then
+    content = string.gsub(content,
+                          "\\fileversion{.-}",
+                          "\\fileversion{"..tkzbasev.."}")
+    content = string.gsub(content,
+                          "\\filedate{.-}",
+                          "\\filedate{"..tkzbased.."}")
+    content = string.gsub(content,
+                          "\\typeout{%d%d%d%d%/%d%d%/%d%d %d+.%d+%a* %s*(.-)}",
+                          "\\typeout{"..tkzbased.." "..tkzbasev.." %1}")
+  end
   if string.match(file, "README.md$") then
     content = string.gsub(content,
                           "Release %d+.%d+%a* %d%d%d%d%/%d%d%/%d%d",
@@ -280,6 +294,7 @@ local function type_manual()
     error("Error!!: Typesetting "..file..".tex")
     return errorlevel
   end
+  ren("doc/sourcedoc", "TKZdoc-base.tex", "TKZdoc-base-main.tex")
   return 0
 end
 
